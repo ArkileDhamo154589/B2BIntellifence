@@ -1,66 +1,102 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="bg-[#020617] min-h-screen text-white p-10 font-sans">
+    <div class="max-w-7xl mx-auto">
 
-        <div class="flex justify-between items-center mb-12 border-b-2 border-slate-900 pb-8">
-            <div>
-                <h1 class="text-4xl font-black italic uppercase tracking-tighter">System_Overwatch_v1</h1>
-                <p class="text-teal-500 font-mono text-xs mt-2">ROLE: SUPER_ADMIN // STATUS: ENCRYPTED_SESSION</p>
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Dashboard</h1>
+            <p class="text-slate-500 text-sm mt-1">Στατιστικά στοιχεία και πρόσφατη δραστηριότητα.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    </div>
+                    <span class="text-xs font-bold text-teal-500 bg-teal-50 px-2 py-1 rounded">+12.5%</span>
+                </div>
+                <p class="text-2xl font-bold text-slate-900 leading-none">1,248</p>
+                <p class="text-xs font-bold text-slate-400 uppercase mt-2 tracking-wider">Παραγγελίες Μήνα</p>
             </div>
-            <div class="flex gap-4">
-                <div class="px-6 py-2 border-2 border-slate-800 rounded-full text-[10px] font-black uppercase">Server_Load: 14%</div>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button class="px-6 py-2 bg-red-600 rounded-full text-[10px] font-black uppercase">Terminate_Session</button>
-                </form>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-orange-400">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                </div>
+                <p class="text-2xl font-bold text-slate-900 leading-none">42</p>
+                <p class="text-xs font-bold text-slate-400 uppercase mt-2 tracking-wider">Σε Αναμονή</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1v2H9V7zm0 4h1v2H9v-2z"/></svg>
+                    </div>
+                </div>
+                <p class="text-2xl font-bold text-slate-900 leading-none">156</p>
+                <p class="text-xs font-bold text-slate-400 uppercase mt-2 tracking-wider">Εταιρείες Δικτύου</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                </div>
+                <p class="text-2xl font-bold text-slate-900 leading-none">89</p>
+                <p class="text-xs font-bold text-slate-400 uppercase mt-2 tracking-wider">Active Feeds</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="border-2 border-slate-900 p-8 rounded-[2rem] bg-slate-950">
-                <span class="text-slate-500 text-[10px] font-black uppercase">Total_Nodes</span>
-                <div class="text-5xl font-black italic mt-2">{{ $total_companies }}</div>
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="px-8 py-5 border-b border-slate-100 flex items-center justify-between">
+                <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Πρόσφατες Παραγγελίες</h3>
+                <button class="text-xs font-bold text-blue-600 hover:underline">Προβολή όλων</button>
             </div>
-            <div class="border-2 border-slate-900 p-8 rounded-[2rem] bg-slate-950 border-teal-500/50">
-                <span class="text-teal-500 text-[10px] font-black uppercase">Pending_Approvals</span>
-                <div class="text-5xl font-black italic mt-2">{{ $pending_approvals }}</div>
-            </div>
-            <div class="border-2 border-slate-900 p-8 rounded-[2rem] bg-slate-950">
-                <span class="text-slate-500 text-[10px] font-black uppercase">Monthly_Revenue</span>
-                <div class="text-5xl font-black italic mt-2">€ 12,450</div>
-            </div>
-        </div>
-
-        <div class="border-2 border-slate-900 rounded-[2.5rem] bg-white text-slate-950 overflow-hidden">
-            <div class="bg-slate-900 text-white p-6 flex justify-between items-center">
-                <h3 class="font-black italic uppercase text-sm">Latest_Financial_Transmissions</h3>
-                <a href="#" class="text-[10px] font-black underline hover:text-teal-400">VIEW_ALL_INVOICES</a>
-            </div>
-            <table class="w-full text-left">
-                <thead class="bg-slate-50 border-b-2 border-slate-900">
-                <tr>
-                    <th class="p-6 text-[10px] font-black uppercase">Company_Entity</th>
-                    <th class="p-6 text-[10px] font-black uppercase">Plan_ID</th>
-                    <th class="p-6 text-[10px] font-black uppercase">Amount</th>
-                    <th class="p-6 text-[10px] font-black uppercase text-right">Action</th>
-                </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100">
-                @foreach($latest_payments as $payment)
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
                     <tr>
-                        <td class="p-6 font-bold uppercase italic text-sm">{{ $payment->company->name }}</td>
-                        <td class="p-6"><span class="px-3 py-1 bg-slate-900 text-white text-[9px] font-black rounded-full">#PLAN_{{ $payment->plan_id }}</span></td>
-                        <td class="p-6 font-black text-teal-600">€ {{ $payment->amount }}</td>
-                        <td class="p-6 text-right">
-                            <button class="bg-slate-100 p-2 rounded-lg hover:bg-teal-500 hover:text-white transition">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-width="2"/></svg>
+                        <th class="px-8 py-4">ID</th>
+                        <th class="px-8 py-4">Εταιρεία</th>
+                        <th class="px-8 py-4">Ποσό</th>
+                        <th class="px-8 py-4">Κατάσταση</th>
+                        <th class="px-8 py-4 text-right">Ενέργεια</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50/50 transition">
+                        <td class="px-8 py-5 text-xs font-mono font-bold text-slate-400">#8842</td>
+                        <td class="px-8 py-5 text-sm font-bold text-slate-700 uppercase tracking-tight">Φαρμακείο Γεωργίου</td>
+                        <td class="px-8 py-5 text-sm font-black text-slate-900">€ 120.50</td>
+                        <td class="px-8 py-5">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-orange-600 uppercase">Pending</span>
+                        </td>
+                        <td class="px-8 py-5 text-right">
+                            <button class="p-2 hover:bg-slate-100 rounded-lg transition text-slate-400 hover:text-blue-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                             </button>
                         </td>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    <tr class="hover:bg-slate-50/50 transition">
+                        <td class="px-8 py-5 text-xs font-mono font-bold text-slate-400">#8841</td>
+                        <td class="px-8 py-5 text-sm font-bold text-slate-700 uppercase tracking-tight">Medica AE</td>
+                        <td class="px-8 py-5 text-sm font-black text-slate-900">€ 450.00</td>
+                        <td class="px-8 py-5">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-50 text-teal-600 uppercase">Completed</span>
+                        </td>
+                        <td class="px-8 py-5 text-right">
+                            <button class="p-2 hover:bg-slate-100 rounded-lg transition text-slate-400 hover:text-blue-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 @endsection
