@@ -43,7 +43,57 @@
             </div>
 
         </div>
+        <section class="pricing-section">
+            <h2 class="pricing-title">Επιλέξτε το κατάλληλο πλάνο</h2>
+            <p class="pricing-subtitle">Ευέλικτα πακέτα συνδρομών, προσαρμοσμένα στις ανάγκες του δικού σας δικτύου φαρμακείων.</p>
 
+            <div class="pricing-grid">
+
+                <div class="pricing-card">
+                    <div class="pricing-tier">Basic</div>
+                    <div class="pricing-price">€30<span>/μήνα</span></div>
+                    <p class="text-muted text-sm mt-2">Ιδανικό για νέες B2B εταιρείες.</p>
+
+                    <ul class="pricing-features">
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Εταιρικό Προφίλ B2B</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Έως 100 Παραγγελίες / μήνα</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Βασικά Στατιστικά Πωλήσεων</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Υποστήριξη μέσω Email</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Έναρξη Basic</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Δημοφιλες</div>
+                    <div class="pricing-tier text-pharma-teal">Pro</div>
+                    <div class="pricing-price">€60<span>/μήνα</span></div>
+                    <p class="text-muted text-sm mt-2">Για αναπτυσσόμενα δίκτυα φαρμακείων.</p>
+
+                    <ul class="pricing-features">
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <b>Όλα τα χαρακτηριστικά Basic</b></li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <b>Απεριόριστες</b> Παραγγελίες</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Πλήρη Analytics & Εξαγωγή (Excel)</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Τηλεφωνική Υποστήριξη</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Έναρξη Pro</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-tier">Premium</div>
+                    <div class="pricing-price">€100<span>/μήνα</span></div>
+                    <p class="text-muted text-sm mt-2">Η απόλυτη λύση για μεγάλες εταιρείες.</p>
+
+                    <ul class="pricing-features">
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <b>Όλα τα χαρακτηριστικά Pro</b></li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Σύνδεση με το ERP σας (API)</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Προσαρμοσμένες (Custom) Αναφορές</li>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dedicated Account Manager (24/7)</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Έναρξη Premium</a>
+                </div>
+
+            </div>
+        </section>
         <section class="features-section">
             <h2 class="features-title">Πώς λειτουργεί το PharmaIntel;</h2>
 
@@ -67,6 +117,7 @@
                 </div>
             </div>
         </section>
+
 
     </main>
 @endsection
